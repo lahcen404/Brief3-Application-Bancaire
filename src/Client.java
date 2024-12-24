@@ -1,20 +1,68 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Client {
-    int id;
-    String nom;
-    String prenom;
-    String email;
-    String adresse;
-    String telephone;
+    static ArrayList<Client> clients = new ArrayList<>();
+    static Scanner sc=new Scanner(System.in);
+
+    private static int lastId=0;
+    private int id;
+    private String nom;
+    private String prenom;
+    private String email;
+    private String adresse;
+    private String telephone;
+
 
     // Constructor
-    public Client(int id, String nom, String prenom, String email, String adresse, String telephone) {
-        this.id = id;
+    public Client( String nom, String prenom, String email, String adresse, String telephone) {
+        this.id = ++lastId;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.adresse = adresse;
         this.telephone = telephone;
     }
+
+
+    public static void ajouterClient(){
+
+        System.out.println("Entre Nom :");
+        String nom = sc.nextLine();
+        System.out.println("Entre Prenom :");
+        String prenom = sc.nextLine();
+        System.out.println("Entre email :");
+        String email = sc.nextLine();
+        System.out.println("Entre adresse :");
+        String adresse = sc.nextLine();
+        System.out.println("Entre telephone :");
+        String telephone = sc.nextLine();
+
+        Client newClient =new Client (nom,prenom,email,adresse,telephone);
+        clients.add(newClient);
+        System.out.println("Client Ajouter sucessfully");
+
+    }
+
+    public static void afficherClient(){
+
+        for(Client client:clients){
+            System.out.println(client);
+        }
+    }
+    public static void RechercheClientById() {
+        System.out.println("Entre id ");
+        int id = sc.nextInt();
+        sc.nextLine();
+        for (Client client : clients) {
+            if (client.getId()==id){
+                System.out.println(client);
+            }
+        }
+    }
+
+
+
     public int getId(){
         return id;
     }
@@ -57,5 +105,17 @@ public class Client {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", email='" + email + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", telephone='" + telephone + '\'' +
+                '}';
     }
 }
