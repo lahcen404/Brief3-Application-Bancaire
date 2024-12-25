@@ -1,5 +1,8 @@
+import java.lang.classfile.AttributedElement;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Client {
     static ArrayList<Client> clients = new ArrayList<>();
@@ -31,17 +34,44 @@ public class Client {
         String nom = sc.nextLine();
         System.out.println("Entre Prenom :");
         String prenom = sc.nextLine();
-        System.out.println("Entre email :");
-        String email = sc.nextLine();
+        String email;
+        do {
+            System.out.println("Entre email :");
+            email = sc.nextLine();
+            if(!isValidEmail(email)){
+                System.out.println("Email not valid (Like this : email@doamin.com)");
+            }
+
+        }while (!isValidEmail(email));
+
         System.out.println("Entre adresse :");
         String adresse = sc.nextLine();
-        System.out.println("Entre telephone :");
-        String telephone = sc.nextLine();
+        String telephone;
+        do {
+            System.out.println("Entre telephone :");
+             telephone = sc.nextLine();
+             if(!isValidNumero(telephone)){
+                 System.out.println("Numero not valid (Like this : 06|05|07 ..... 10 digits)");
+             }
+        }while (!isValidNumero(telephone));
 
         Client newClient =new Client (nom,prenom,email,adresse,telephone);
         clients.add(newClient);
         System.out.println("Client Ajouter sucessfully");
 
+    }
+    static boolean isValidEmail(String email){
+        String emailRegex="^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}$";
+        Pattern pattern=Pattern.compile(emailRegex);
+        Matcher matcher= pattern.matcher(email);
+        return  matcher.matches();
+    }
+
+    static boolean isValidNumero(String email){
+        String numeroRegex="^(06|07|05)\\d{8}$";
+        Pattern pattern=Pattern.compile(numeroRegex);
+        Matcher matcher= pattern.matcher(email);
+        return  matcher.matches();
     }
 
     public static void afficherClient(){

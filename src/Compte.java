@@ -11,6 +11,10 @@ public abstract class Compte {
         
     }
 
+    public static  void ajouterCompte(){
+        System.out.println("  ");
+    }
+
     public String getNumero() {
         return numero;
     }
