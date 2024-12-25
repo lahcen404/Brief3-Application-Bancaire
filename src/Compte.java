@@ -1,8 +1,13 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public abstract class Compte {
     String numero;
     double solde;
     Client proprietaire;
 
+    static ArrayList<Compte> comptes = new ArrayList<>();
+   static  Scanner sc=new Scanner(System.in);
     // Constructor
     public Compte(String numero, double solde, Client proprietaire) {
         this.numero = numero;
@@ -12,8 +17,20 @@ public abstract class Compte {
     }
 
     public static  void ajouterCompte(){
-        System.out.println("  ");
-    }
+
+            System.out.println("Entre Numero de Compte :");
+            String numeroCompte = sc.nextLine();
+            System.out.println("Entre salaire :");
+            Double salaire = sc.nextDouble();
+
+
+
+//here
+           // Compte newCompte =new Compte (numeroCompte,salaire,null);
+          //  comptes.add(newCompte);
+            System.out.println("Compte Ajouter sucessfully");
+
+        }
 
     public String getNumero() {
         return numero;

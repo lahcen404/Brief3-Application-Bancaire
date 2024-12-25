@@ -1,4 +1,3 @@
-import java.lang.classfile.AttributedElement;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -61,7 +60,7 @@ public class Client {
 
     }
     static boolean isValidEmail(String email){
-        String emailRegex="^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}$";
+        String emailRegex="^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+.[a-zA-Z]{2,}$";
         Pattern pattern=Pattern.compile(emailRegex);
         Matcher matcher= pattern.matcher(email);
         return  matcher.matches();
