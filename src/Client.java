@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Client {
-    static ArrayList<Client> clients = new ArrayList<>();
+   public static ArrayList<Client> clients = new ArrayList<>();
     static Scanner sc=new Scanner(System.in);
 
     private static int lastId=0;
@@ -27,12 +27,29 @@ public class Client {
     }
 
 
+
+
+
     public static void ajouterClient(){
 
-        System.out.println("Entre Nom :");
-        String nom = sc.nextLine();
-        System.out.println("Entre Prenom :");
-        String prenom = sc.nextLine();
+        String nom;
+        do {
+            System.out.println("Entre Nom :");
+            nom = sc.nextLine();
+            if (!isNameValid(nom)) {
+                System.out.println("Invalid only Characters without Numbers and more than 2 character");
+            }
+        }while(!isNameValid(nom));
+
+        String prenom;
+        do {
+            System.out.println("Entre Prenom :");
+            prenom = sc.nextLine();
+            if (!isNameValid(prenom)) {
+                System.out.println("Invalid only Characters without Numbers and more than 2 character");
+            }
+        }while(!isNameValid(prenom));
+
         String email;
         do {
             System.out.println("Entre email :");
@@ -59,6 +76,8 @@ public class Client {
         System.out.println("Client Ajouter sucessfully");
 
     }
+
+    //Method REGEX Email
     static boolean isValidEmail(String email){
         String emailRegex="^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+.[a-zA-Z]{2,}$";
         Pattern pattern=Pattern.compile(emailRegex);
@@ -66,6 +85,15 @@ public class Client {
         return  matcher.matches();
     }
 
+    //Method REGEX Name & Prenom
+    static boolean isNameValid(String name){
+        String nameRegex="^[a-zA-Z]{2,}$";
+        Pattern pattern=Pattern.compile(nameRegex);
+        Matcher matcher= pattern.matcher(name);
+        return matcher.matches();
+    }
+
+    //Method REGEX Numero
     static boolean isValidNumero(String email){
         String numeroRegex="^(06|07|05)\\d{8}$";
         Pattern pattern=Pattern.compile(numeroRegex);
@@ -73,12 +101,19 @@ public class Client {
         return  matcher.matches();
     }
 
+
+    //Display information of client
     public static void afficherClient(){
 
+        if(clients.isEmpty()){
+            System.out.println("No Client Available");
+        }
         for(Client client:clients){
             System.out.println(client);
         }
     }
+
+    //Check if Client is existe
     boolean clientExiste(){
       for(Client client : clients) {
       if(client.getId()==id){
@@ -88,7 +123,13 @@ public class Client {
 
 return false;
     }
+
+
     public static void RechercheClientById() {
+
+        if(clients.isEmpty()){
+            System.out.println("No Client Available");
+        }
         System.out.println("Entre id ");
         int id = sc.nextInt();
         sc.nextLine();
@@ -147,13 +188,14 @@ return false;
 
     @Override
     public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", email='" + email + '\'' +
-                ", adresse='" + adresse + '\'' +
-                ", telephone='" + telephone + '\'' +
-                '}';
+        return "Client Information:\n" +
+                "-------------------\n" +
+                "ID          : " + id + "\n" +
+                "Nom        : " + nom + "\n" +
+                "Prenom  : " + prenom + "\n" +
+                "Email       : " + email + "\n" +
+                "Address     : " + adresse + "\n" +
+                "Telephone       : " + telephone + "\n";
     }
+
 }

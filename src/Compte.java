@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.Random;
 import java.util.Scanner;
 
 public abstract class Compte {
@@ -44,6 +43,11 @@ public static boolean isNumeroCompteExiste(int numero){
 }
 
     public static void ajouterCompte() {
+
+        if(Client.clients.isEmpty()){
+                 System.out.println("You can't Create Account because No Client (Empty)");
+                 return;
+        }
         int numero=0;
         try {
             while(true) {
@@ -125,10 +129,11 @@ public static boolean isNumeroCompteExiste(int numero){
 
     @Override
     public String toString() {
-        return "Compte{" +
-                "numero='" + numero + '\'' +
-                ", solde=" + solde +
-                ", proprietaire=" + proprietaire +
-                '}';
+        return "Details du Compte :\n" +
+                "-------------------\n" +
+                "Numero de Compte : " + numero + "\n" +
+                "Solde            : " + solde + " \n" +
+                "Proprietaire     : " + proprietaire + "\n";
     }
+
 }

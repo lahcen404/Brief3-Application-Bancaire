@@ -51,28 +51,33 @@ Run();
             private static void gererClients(Scanner scanner) {
                 int choix = -1;
                 while (choix != 0) {
-                    System.out.println("\nMenu Gestion des Clients:");
-                    System.out.println("1. Ajouter un client");
-                    System.out.println("2. Afficher la liste des clients");
-                    System.out.println("3. Rechercher un client par ID");
-                    System.out.println("0. Retour au menu principal");
-                    System.out.print("Entrez votre choix: ");
-                    choix = scanner.nextInt();
+                    try {
+                        System.out.println("\nMenu Gestion des Clients:");
+                        System.out.println("1. Ajouter un client");
+                        System.out.println("2. Afficher la liste des clients");
+                        System.out.println("3. Rechercher un client par ID");
+                        System.out.println("0. Retour au menu principal");
+                        System.out.print("Entrez votre choix: ");
+                        choix = scanner.nextInt();
 
-                    switch (choix) {
-                        case 1:
-                            Client.ajouterClient();
-                            break;
-                        case 2:
-                           Client.afficherClient();
-                            break;
-                        case 3:
-                            Client.RechercheClientById();
-                            break;
-                        case 0:
-                            break;
-                        default:
-                            System.out.println("Choix invalide, veuillez réessayer.");
+                        switch (choix) {
+                            case 1:
+                                Client.ajouterClient();
+                                break;
+                            case 2:
+                                Client.afficherClient();
+                                break;
+                            case 3:
+                                Client.RechercheClientById();
+                                break;
+                            case 0:
+                                break;
+                            default:
+                                System.out.println("Choix invalide, veuillez réessayer.");
+                        }
+                    }catch (InputMismatchException e){
+                        System.out.println("Entre only Numbers !!");
+                        scanner.nextLine();
                     }
                 }
             }
@@ -80,28 +85,33 @@ Run();
             private static void gererComptes(Scanner scanner) {
                 int choix = -1;
                 while (choix != 0) {
-                    System.out.println("\nMenu Gestion des Comptes:");
-                    System.out.println("1. Créer un compte bancaire");
-                    System.out.println("2. Afficher les informations d'un compte");
-                    System.out.println("3. Associer plusieurs comptes à un client");
-                    System.out.println("0. Retour au menu principal");
-                    System.out.print("Entrez votre choix: ");
-                    choix = scanner.nextInt();
+                    try {
+                        System.out.println("\nMenu Gestion des Comptes:");
+                        System.out.println("1. Créer un compte bancaire");
+                        System.out.println("2. Afficher les informations d'un compte");
+                        System.out.println("3. Associer plusieurs comptes à un client");
+                        System.out.println("0. Retour au menu principal");
+                        System.out.print("Entrez votre choix: ");
+                        choix = scanner.nextInt();
 
-                    switch (choix) {
-                        case 1:
-                            Compte.ajouterCompte();
-                            break;
-                        case 2:
-                            Compte.afficherComptes();
-                            break;
-                        case 3:
-                            // associate multiple accounts with a client
-                            break;
-                        case 0:
-                            break;
-                        default:
-                            System.out.println("Choix invalide, veuillez réessayer.");
+                        switch (choix) {
+                            case 1:
+                                Compte.ajouterCompte();
+                                break;
+                            case 2:
+                                Compte.afficherComptes();
+                                break;
+                            case 3:
+                                // associate multiple accounts with a client
+                                break;
+                            case 0:
+                                break;
+                            default:
+                                System.out.println("Choix invalide, veuillez réessayer.");
+                        }
+                    }catch(InputMismatchException e){
+                        System.out.println("Entre only Numbers !!!");
+                        scanner.nextLine();
                     }
                 }
             }
@@ -109,6 +119,7 @@ Run();
             private static void gererOperations(Scanner scanner) {
                 int choix = -1;
                 while (choix != 0) {
+                    try{
                     System.out.println("\nMenu Gestion des Opérations:");
                     System.out.println("1. Effectuer un dépôt");
                     System.out.println("2. Effectuer un retrait");
@@ -140,8 +151,11 @@ Run();
                         default:
                             System.out.println("Choix invalide, veuillez réessayer.");
                     }
-                }
-            }
+                }catch (InputMismatchException e){
+                        System.out.println("Entre Only Numbers !!!!");
+                        scanner.nextLine();
+                    }
+            }}
         }
 
 
