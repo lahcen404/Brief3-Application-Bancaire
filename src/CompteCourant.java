@@ -1,7 +1,7 @@
 public class CompteCourant extends  Compte{
         private  double fraiBancaire;
 
-    public CompteCourant(String numero, double solde, Client proprietaire,double fraiBancaire) {
+    public CompteCourant(int numero, double solde, Client proprietaire,double fraiBancaire) {
         super(numero, solde, proprietaire);
         this.fraiBancaire=fraiBancaire;
     }

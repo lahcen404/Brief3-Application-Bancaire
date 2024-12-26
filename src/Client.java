@@ -79,6 +79,15 @@ public class Client {
             System.out.println(client);
         }
     }
+    boolean clientExiste(){
+      for(Client client : clients) {
+      if(client.getId()==id){
+          return true;
+      }
+      }
+
+return false;
+    }
     public static void RechercheClientById() {
         System.out.println("Entre id ");
         int id = sc.nextInt();

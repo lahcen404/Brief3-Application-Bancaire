@@ -90,10 +90,10 @@ Run();
 
                     switch (choix) {
                         case 1:
-                            //  account creation
+                            Compte.ajouterCompte();
                             break;
                         case 2:
-                            //  account information display
+                            Compte.afficherComptes();
                             break;
                         case 3:
                             // associate multiple accounts with a client

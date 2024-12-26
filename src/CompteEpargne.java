@@ -1,7 +1,7 @@
 public class CompteEpargne extends  Compte{
 
     private double TauxInteret;
-    public CompteEpargne(String numero, double solde, Client proprietaire,double TauxInteret) {
+    public CompteEpargne(int numero, double solde, Client proprietaire,double TauxInteret) {
         super(numero, solde, proprietaire);
         this.TauxInteret=TauxInteret;
     }
