@@ -89,7 +89,7 @@ Run();
                         System.out.println("\nMenu Gestion des Comptes:");
                         System.out.println("1. Créer un compte bancaire");
                         System.out.println("2. Afficher les informations d'un compte");
-                        System.out.println("3. Associer plusieurs comptes à un client");
+                        System.out.println("3. Associer  compte à un client");
                         System.out.println("0. Retour au menu principal");
                         System.out.print("Entrez votre choix: ");
                         choix = scanner.nextInt();
@@ -102,7 +102,7 @@ Run();
                                 Compte.afficherComptes();
                                 break;
                             case 3:
-                                // associate multiple accounts with a client
+                                Compte.associerCompteToClient();
                                 break;
                             case 0:
                                 break;

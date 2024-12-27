@@ -6,6 +6,17 @@ public class CompteEpargne extends  Compte{
         this.TauxInteret=TauxInteret;
     }
 
+
+    //Polymorphism
+    @Override
+    public void afficherInformations() {
+        System.out.println("Compte Epargne:");
+        System.out.println("Numéro: " + numero);
+        System.out.println("Solde: " + solde);
+        System.out.println("Frais Bancaires: " + TauxInteret);
+        System.out.println("Propriétaire: " + (proprietaire != null ? proprietaire.getNom() : "Aucun"));
+    }
+
     public double getTauxInteret() {
         return TauxInteret;
     }

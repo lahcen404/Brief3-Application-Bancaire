@@ -33,7 +33,9 @@ public abstract class Compte {
 //            System.out.println("Compte Ajouter sucessfully");
 //
 //        }
-public static boolean isNumeroCompteExiste(int numero){
+public abstract void afficherInformations();
+
+    public static boolean isNumeroCompteExiste(int numero){
         for(Compte compte : comptes){
             if(compte.getNumero()==numero){
                 return true;
@@ -103,6 +105,41 @@ public static boolean isNumeroCompteExiste(int numero){
         }
 
     }
+
+    public static Compte IsCompteExiste(int numero){
+        for(Compte compte : comptes) {
+            if(compte.getNumero()==numero){
+                return compte;
+            }
+        }
+
+        return null;
+    }
+
+
+    public static  void associerCompteToClient(){
+        System.out.println("Entrer numero de classe :");
+        int numero=sc.nextInt();
+        sc.nextLine();
+        Compte compteExiste=IsCompteExiste(numero);
+        System.out.println("Entrer id de Client :");
+        int id=sc.nextInt();
+        sc.nextLine();
+        Client clientExiste=Client.IsClientExiste(id);
+        if(compteExiste!=null){
+            if(clientExiste!=null){
+                compteExiste.proprietaire=clientExiste;
+                System.out.println("Compte associer successfully");
+            }else {
+                System.out.println("Compte non trouver");
+            }
+            }else{
+                System.out.println("Compte non trouver");
+            }
+        }
+
+
+
     public int getNumero() {
         return numero;
     }

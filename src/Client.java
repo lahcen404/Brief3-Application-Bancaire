@@ -8,7 +8,7 @@ public class Client {
     static Scanner sc=new Scanner(System.in);
 
     private static int lastId=0;
-    private int id;
+    private static int id;
     private String nom;
     private String prenom;
     private String email;
@@ -114,15 +114,16 @@ public class Client {
     }
 
     //Check if Client is existe
-    boolean clientExiste(){
+    public static Client IsClientExiste(int id){
       for(Client client : clients) {
       if(client.getId()==id){
-          return true;
+          return client;
       }
       }
 
-return false;
+return null;
     }
+
 
 
     public static void RechercheClientById() {

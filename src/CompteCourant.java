@@ -6,6 +6,16 @@ public class CompteCourant extends  Compte{
         this.fraiBancaire=fraiBancaire;
     }
 
+    //Polymorphism
+    @Override
+    public void afficherInformations() {
+        System.out.println("Compte Courant:");
+        System.out.println("Numéro: " + numero);
+        System.out.println("Solde: " + solde);
+        System.out.println("Frais Bancaires: " + fraiBancaire);
+        System.out.println("Propriétaire: " + (proprietaire != null ? proprietaire.getNom() : "Aucun"));
+    }
+
     public double getFraiBancaire() {
         return fraiBancaire;
     }
