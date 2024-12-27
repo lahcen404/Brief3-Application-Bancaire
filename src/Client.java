@@ -8,7 +8,7 @@ public class Client {
     static Scanner sc=new Scanner(System.in);
 
     private static int lastId=0;
-    private static int id;
+    private  int id;
     private String nom;
     private String prenom;
     private String email;
@@ -87,7 +87,7 @@ public class Client {
 
     //Method REGEX Name & Prenom
     static boolean isNameValid(String name){
-        String nameRegex="^[a-zA-Z]{2,}$";
+        String nameRegex= "^[a-zA-Z ]{2,}$";
         Pattern pattern=Pattern.compile(nameRegex);
         Matcher matcher= pattern.matcher(name);
         return matcher.matches();
@@ -130,6 +130,7 @@ return null;
 
         if(clients.isEmpty()){
             System.out.println("No Client Available");
+            return;
         }
         System.out.println("Entre id ");
         int id = sc.nextInt();

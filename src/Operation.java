@@ -13,6 +13,27 @@ public class Operation {
         this.compteAssocier=compteAssocier;
     }
 
+    public static  void makeDepot(Compte compte,double montant){
+        compte.solde+=montant;
+        Operation operation=new Operation("Depot",montant,new Date(),compte);
+        System.out.println("Depot successfully !!");
+    }
+
+    public static void makeRetrait(Compte compte,double montant){
+         if(compte.solde>=montant){
+             compte.solde-=montant;
+             Operation operation=new Operation("Retrait",montant,new Date(),compte);
+             System.out.println("Retrait Succesfully !!");
+         }else{
+             System.out.println("Solde insuffisant !");
+         }
+
+    }
+
+    public static void ConsultationDeSolde(Compte compte){
+        System.out.println("Solde actueel : "+compte.solde);
+    }
+
     public String getType(){
         return type;
     }

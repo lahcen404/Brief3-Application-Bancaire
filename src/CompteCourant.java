@@ -6,15 +6,7 @@ public class CompteCourant extends  Compte{
         this.fraiBancaire=fraiBancaire;
     }
 
-    //Polymorphism
-    @Override
-    public void afficherInformations() {
-        System.out.println("Compte Courant:");
-        System.out.println("Numéro: " + numero);
-        System.out.println("Solde: " + solde);
-        System.out.println("Frais Bancaires: " + fraiBancaire);
-        System.out.println("Propriétaire: " + (proprietaire != null ? proprietaire.getNom() : "Aucun"));
-    }
+
 
     public double getFraiBancaire() {
         return fraiBancaire;
@@ -25,12 +17,19 @@ public class CompteCourant extends  Compte{
     }
 
     @Override
+    public void afficherInformations() {
+
+    }
+
+    @Override
     public String toString() {
-        return "CompteCourant{" +
-                "numero='" + numero + '\'' +
-                ", solde=" + solde +
-                ", proprietaire=" + proprietaire +
-                ", fraiBancaire=" + fraiBancaire +
-                '}';
+        return "=============================\n" +
+                "    Détails du Compte Courant\n" +
+                "=============================\n" +
+                "Numéro de Compte : " + numero + "\n" +
+                "Solde            : " + solde + " \n" +
+                "Frais Bancaires  : " + fraiBancaire + "\n" +
+                "Propriétaire     : \n" + (proprietaire != null ? proprietaire : "Aucun") + "\n" +
+                "=============================\n";
     }
 }

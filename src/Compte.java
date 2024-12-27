@@ -118,10 +118,12 @@ public abstract void afficherInformations();
 
 
     public static  void associerCompteToClient(){
+        afficherComptes();
         System.out.println("Entrer numero de classe :");
         int numero=sc.nextInt();
         sc.nextLine();
         Compte compteExiste=IsCompteExiste(numero);
+        Client.afficherClient();
         System.out.println("Entrer id de Client :");
         int id=sc.nextInt();
         sc.nextLine();

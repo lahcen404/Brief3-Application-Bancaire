@@ -7,15 +7,7 @@ public class CompteEpargne extends  Compte{
     }
 
 
-    //Polymorphism
-    @Override
-    public void afficherInformations() {
-        System.out.println("Compte Epargne:");
-        System.out.println("Numéro: " + numero);
-        System.out.println("Solde: " + solde);
-        System.out.println("Frais Bancaires: " + TauxInteret);
-        System.out.println("Propriétaire: " + (proprietaire != null ? proprietaire.getNom() : "Aucun"));
-    }
+
 
     public double getTauxInteret() {
         return TauxInteret;
@@ -26,12 +18,19 @@ public class CompteEpargne extends  Compte{
     }
 
     @Override
+    public void afficherInformations() {
+
+    }
+
+    @Override
     public String toString() {
-        return "CompteEpargne{" +
-                "numero='" + numero + '\'' +
-                ", solde=" + solde +
-                ", proprietaire=" + proprietaire +
-                ", TauxInteret=" + TauxInteret +
-                '}';
+        return "=============================\n" +
+                "    Détails du Compte Épargne\n" +
+                "=============================\n" +
+                "Numéro de Compte : " + numero + "\n" +
+                "Solde            : " + solde + " \n" +
+                "Taux d'Intérêt   : " + TauxInteret + "\n" +
+                "Propriétaire     :\n " + (proprietaire != null ? proprietaire : "Aucun") + "\n" +
+                "=============================\n";
     }
 }

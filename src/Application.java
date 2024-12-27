@@ -43,7 +43,7 @@ Run();
                 sc.close();
             } catch (InputMismatchException e) {
                 System.out.println("Entre only Numbers");
-                sc.nextLine();
+                sc.next();
             }
         }
     }
@@ -77,7 +77,7 @@ Run();
                         }
                     }catch (InputMismatchException e){
                         System.out.println("Entre only Numbers !!");
-                        scanner.nextLine();
+                        scanner.next();
                     }
                 }
             }
@@ -111,7 +111,7 @@ Run();
                         }
                     }catch(InputMismatchException e){
                         System.out.println("Entre only Numbers !!!");
-                        scanner.nextLine();
+                        scanner.next();
                     }
                 }
             }
