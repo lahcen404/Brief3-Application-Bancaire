@@ -17,6 +17,8 @@ public abstract class Compte {
         this.proprietaire = proprietaire;
 
     }
+    public Compte() {
+    }
 
 
 

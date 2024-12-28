@@ -115,47 +115,41 @@ Run();
                     }
                 }
             }
-
             private static void gererOperations(Scanner scanner) {
                 int choix = -1;
                 while (choix != 0) {
-                    try{
-                    System.out.println("\nMenu Gestion des Opérations:");
-                    System.out.println("1. Effectuer un dépôt");
-                    System.out.println("2. Effectuer un retrait");
-                    System.out.println("3. Effectuer un virement");
-                    System.out.println("4. Afficher l'historique des opérations");
-                    System.out.println("5. Filtrer les opérations");
-                    System.out.println("0. Retour au menu principal");
-                    System.out.print("Entrez votre choix: ");
-                    choix = scanner.nextInt();
-
-                    switch (choix) {
-                        case 1:
-                            //  deposit
-                            break;
-                        case 2:
-                            //  withdrawal
-                            break;
-                        case 3:
-                            //  transfer
-                            break;
-                        case 4:
-
-                            break;
-                        case 5:
-
-                            break;
-                        case 0:
-                            break;
-                        default:
-                            System.out.println("Choix invalide, veuillez réessayer.");
-                    }
-                }catch (InputMismatchException e){
+                    try {
+                        System.out.println("\nMenu Gestion des Opérations:");
+                        System.out.println("1. Effectuer un dépôt");
+                        System.out.println("2. Effectuer un retrait");
+                        System.out.println("3. Consulter le solde");
+                        System.out.println("0. Retour au menu principal");
+                        System.out.print("Entrez votre choix: ");
+                        choix = scanner.nextInt();
+            
+                        switch (choix) {
+                            case 1:
+                               Operation.effectuerDepot(scanner);
+                                break;
+                            case 2:
+                                Operation.effectuerRetrait(scanner);
+                                break;
+                            case 3:
+                                Operation.consulterSolde(scanner);
+                                break;
+                            case 0:
+                                break;
+                            default:
+                                System.out.println("Choix invalide, veuillez réessayer.");
+                        }
+                    } catch (InputMismatchException e) {
                         System.out.println("Entre Only Numbers !!!!");
                         scanner.nextLine();
                     }
-            }}
+                }
+            }
+            
+
         }
 
 
