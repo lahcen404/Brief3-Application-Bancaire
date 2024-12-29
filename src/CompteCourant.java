@@ -20,6 +20,10 @@ public class CompteCourant extends  Compte{
     public void afficherInformations() {
 
     }
+    @Override
+    public String getType() {
+        return "Courant";
+    }
 
     @Override
     public String toString() {

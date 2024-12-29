@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
 public class Operation {
-Scanner scanner = new Scanner(System.in);
+static Scanner scanner = new Scanner(System.in);
+   static ArrayList<Operation> operations = new ArrayList<>();
 
     private String type;
     private double montant;
@@ -17,13 +19,13 @@ Scanner scanner = new Scanner(System.in);
     }
     public static  void makeDepot(Compte compte,double montant){
         compte.solde+=montant;
-        Operation operation=new Operation("Depot",montant,new Date(),compte);
+        Operation operation=new Operation("depot",montant,new Date(),compte);
         System.out.println("Depot successfully !!");
     }
     public static void makeRetrait(Compte compte,double montant){
          if(compte.solde>=montant){
              compte.solde-=montant;
-             Operation operation=new Operation("Retrait",montant,new Date(),compte);
+             Operation operation=new Operation("retrait",montant,new Date(),compte);
              System.out.println("Retrait Succesfully !!");
          }else{
              System.out.println("Solde insuffisant !");
@@ -32,7 +34,7 @@ Scanner scanner = new Scanner(System.in);
     public static void ConsultationDeSolde(Compte compte){
         System.out.println("Solde actueel : "+compte.solde);
     }
-
+//make a depot
     public static void effectuerDepot(Scanner scanner) {
         System.out.print("Entre numero de compte: ");
         int numeroCompte = scanner.nextInt();
@@ -48,6 +50,7 @@ Scanner scanner = new Scanner(System.in);
         }
     }
     
+    //make a withdrawal
     public static void effectuerRetrait(Scanner scanner) {
         System.out.print("Entrez le numero de compte: ");
         int numeroCompte = scanner.nextInt();
@@ -62,7 +65,7 @@ Scanner scanner = new Scanner(System.in);
             System.out.println("Compte non trouve");
         }
     }
-    
+    //Consult the balance
     public static void consulterSolde(Scanner scanner) {
         System.out.print("Entre  numero de compte: ");
         int numeroCompte = scanner.nextInt();
@@ -76,6 +79,11 @@ Scanner scanner = new Scanner(System.in);
         }
     }
 
+    
+       
+
+    
+//getters and setters
     public String getType(){
         return type;
     }

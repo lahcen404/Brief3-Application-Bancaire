@@ -17,24 +17,13 @@ public abstract class Compte {
         this.proprietaire = proprietaire;
 
     }
+    // Default constructor
     public Compte() {
     }
+    public abstract String getType(); // Abstract method to get the type of account
 
 
-
-
-//    public static  void ajouterCompte(){
-//
-//            System.out.println("Entre Numero de Compte :");
-//            String numeroCompte = sc.nextLine();
-//            System.out.println("Entre salaire :");
-//            Double salaire = sc.nextDouble();
-//
-//          //  Compte newCompte =new Compte (numeroCompte,salaire,null);
-//         //  comptes.add(newCompte);
-//            System.out.println("Compte Ajouter sucessfully");
-//
-//        }
+// Abstract method to display account information
 public abstract void afficherInformations();
 
     public static boolean isNumeroCompteExiste(int numero){
@@ -46,6 +35,7 @@ public abstract void afficherInformations();
         return false;
 }
 
+// Method to add an account
     public static void ajouterCompte() {
 
         if(Client.clients.isEmpty()){
@@ -97,6 +87,33 @@ public abstract void afficherInformations();
         }
     }
 
+    // Method to filter accounts by type
+    public static void filtreCompteByType() {
+        System.out.println("1. Courant");
+        System.out.println("2. Epargne");
+        System.out.print("Enter the type of account: ");
+        int type = sc.nextInt();
+        sc.nextLine(); 
+    
+        String accountType = ""; // Initialize the accountType variable
+        if (type == 1) {
+            accountType = "Courant"; // Courant account
+        } else if (type == 2) {
+            accountType = "Epargne"; // Epargne account
+        } else {
+            System.out.println("Invalid account type."); 
+            return; // Exit the method
+        }
+    
+        for (Compte compte : comptes) {
+            if (compte.getType().equalsIgnoreCase(accountType)) {
+                System.out.println(compte);
+            }
+        }
+    }
+    
+
+    // Method to display accounts
     public static void afficherComptes(){
 
         if(comptes.isEmpty()){
@@ -108,6 +125,7 @@ public abstract void afficherInformations();
 
     }
 
+    // Method to check if an account exists
     public static Compte IsCompteExiste(int numero){
         for(Compte compte : comptes) {
             if(compte.getNumero()==numero){
@@ -119,6 +137,7 @@ public abstract void afficherInformations();
     }
 
 
+    // Method to associate an account with a client 
     public static  void associerCompteToClient(){
         afficherComptes();
         System.out.println("Entrer numero de classe :");
@@ -143,7 +162,7 @@ public abstract void afficherInformations();
         }
 
 
-
+// Getters and Setters
     public int getNumero() {
         return numero;
     }

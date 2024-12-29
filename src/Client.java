@@ -138,6 +138,8 @@ return null;
         for (Client client : clients) {
             if (client.getId()==id){
                 System.out.println(client);
+            }else{
+                System.out.println("Client not found");
             }
         }
     }

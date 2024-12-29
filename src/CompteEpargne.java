@@ -7,7 +7,10 @@ public class CompteEpargne extends  Compte{
     }
 
 
-
+@Override
+    public String getType() {
+        return "Epargne";
+    }
 
     public double getTauxInteret() {
         return TauxInteret;
